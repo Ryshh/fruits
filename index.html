@@ -3,45 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1>Déli gyümölcsök</h1>
-        <h2>Neked melyik a kedvenced?</h2>
-        <select id="gyumolcsok" onchange="selGyumolcs(this)">>
-            <option value="0">válassz...</option>
-        </select>
-        <br>
-    </div>
-
-    <div class="info">
-        <img src="img/narancs.jpg" alt="narancs">
-        <div class="leiras">
-            <h3>Narancs</h3>
-            <p>A narancs vagy édes narancs (Citrus sinensis), népies neve auranci, oránzs déligyümölcs a citrusformák alcsaládjából. Nem azonos a keserű naranccsal (Citrus × aurantium), ami a pomelo (Citrus maxima) és a mandarin (Citrus reticulata) hibridje.</p>
+        <div class="row valasztas">
+            <h1>Déli gyümölcsök</h1>
+            <h3>Neked melyik a kedvenced?</h3>
+            <select id="gyumolcsok" onchange="selGyumolcs(this)">>
+                <option value="0">válassz...</option>
+            </select>
+            <br>
         </div>
+        <div class="row info"></div>
     </div>
 
     <script src="data_fruits.js"></script>
     <script>
-        console.log(fruits);
+        //console.log(fruits);
         fruits.forEach(obj =>{
             document.getElementById('gyumolcsok').innerHTML+=`
                 <option value="${obj.id}">${obj.name}</option>
             `
         })
+
         function selGyumolcs(domObj) 
         {
             document.querySelector('.info').innerHTML=''
             let gyumolcsID = domObj.value
+            //console.log(gyumolcsID)
             if (gyumolcsID == 0) return
             let selectedObj = fruits.find(obj => obj.id == gyumolcsID)
             console.log(selectedObj);
             document.querySelector('.info').innerHTML=`
-            <img src="${selectedObj.image}" alt="${selectedObj.name}" class="responsive">
-            <div class="leiras">
+            <img src="${selectedObj.image}" alt="${selectedObj.name}" class="col-md-5 d-flex h-100 img-fluid">
+            <div class="col-md-2 d-flex h-100">
                 <h3>${selectedObj.name}</h3>
                 <p>${selectedObj.descr}</p>
             </div>

@@ -1,8 +1,7 @@
 *
 {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 .container:before
@@ -25,26 +24,73 @@
 {
     display: grid;
     place-content: center;
+}
+
+h1
+{
+    color: green;
+    text-align: center;
+}
+
+h3
+{
+    color: green;
     text-align: center;
 }
 
 .info
 {
-    height: 300px;
-    width: 800px;
-    border: 1px solid red;
+    max-height: 300px;
+    max-width: 800px;
 }
 
 img
 {
-    float: left;
-    width: 500px;
-    height: 300px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-.leiras
+#gyumolcsok
 {
     background-color: white;
-    height: 300px;
-    padding: 5px;
+    border-radius: 5px;
+    height: 40px;
+    max-width: 300px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valasztas
+{
+    flex-direction: column;
+}
+
+.valasztas, .info
+{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.col-md-5
+{
+    text-align: right;
+    padding: 0;
+}
+
+.col-md-2 {
+    text-align: left;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid white;
 }
